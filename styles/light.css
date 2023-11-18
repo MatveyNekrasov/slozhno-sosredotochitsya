@@ -9,4 +9,35 @@
     Так стили написанные ниже будут иметь больший вес,
     чем стили в медиазапросе предпочтений пользователя
   */
+  --bg-color: #fff1f7; /* цвет бэкграунда */
+  --bg-image: url(../images/cover-image-light.png); /* бэк картинка */
+  --text-color: #353430; /* цвет основного текста */
+  --accent-color: #ff8dcb; /* фоновый цвет выделенных акцентом элементов */
+  --title-color: #ffc2e6; /* цвет главного заголовка */
+  --main-font: "IBM Plex Mono"; /* основной шрифт на странице */
+  --title-decor-color: #353430; /* цвет выделенных акцентом элементов */
+  --subtitle-color: #353430; /* цвет подзаголовков и декоративных элементов */
+  --hover-color: #35343066; /* цвет обводки (с opacity) кнопок при наведении */
+}
+
+.theme_light .decorated-element {
+  display: none;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-color: #fff1f7; /* цвет бэкграунда */
+    --bg-image: url(../images/cover-image-light.png); /* бэк картинка */
+    --text-color: #353430; /* цвет основного текста */
+    --accent-color: #ff8dcb; /* фоновый цвет выделенных акцентом элементов */
+    --title-color: #ffc2e6; /* цвет главного заголовка */
+    --main-font: "IBM Plex Mono"; /* основной шрифт на странице */
+    --title-decor-color: #353430; /* цвет выделенных акцентом элементов */
+    --subtitle-color: #353430; /* цвет подзаголовков и декоративных элементов */
+    --hover-color: #35343066; /* цвет обводки (с opacity) кнопок при наведении */
+  }
+
+  .theme_auto .decorated-element {
+    display: none;
+  }
 }

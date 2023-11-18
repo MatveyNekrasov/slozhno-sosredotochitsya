@@ -30,8 +30,8 @@
   content: "";
   position: absolute;
   display: inline-block;
-  border-inline-end: 1px solid var(--accent-color);
-  border-block-start: 1px solid var(--accent-color);
+  border-inline-end: 1px solid var(--subtitle-color);
+  border-block-start: 1px solid var(--subtitle-color);
   inline-size: 25px;
   block-size: 25px;
   inset-block-start: 10px;
@@ -42,8 +42,8 @@
   content: "";
   position: absolute;
   display: inline-block;
-  border-inline-start: 1px solid var(--accent-color);
-  border-block-end: 1px solid var(--accent-color);
+  border-inline-start: 1px solid var(--subtitle-color);
+  border-block-end: 1px solid var(--subtitle-color);
   inline-size: 25px;
   block-size: 25px;
   inset-block-end: 10px;
@@ -89,7 +89,7 @@
 .header__theme-menu-button {
   border: none;
   padding-inline: 13px;
-  color: var(--accent-color);
+  color: var(--subtitle-color);
   text-align: center;
   text-transform: lowercase;
   background-color: transparent;
@@ -97,8 +97,20 @@
   appearance: none;
 }
 
+.header__theme-menu-button:hover {
+  outline: 1px solid var(--hover-color);
+}
+
+.header__theme-menu-button:focus {
+  outline: none;
+}
+
+.header__theme-menu-button:focus-visible {
+  border-block-end: 1px solid var(--subtitle-color);
+}
+
 .header__theme-menu-button_active {
-  outline: 1px solid var(--accent-color);
+  outline: 1px solid var(--subtitle-color);
   pointer-events: none;
 }
 
@@ -119,7 +131,7 @@
 }
 
 .title-decor {
-  color: #000028;
+  color: var(--title-decor-color);
   font-weight: 700;
   font-size: 18px;
   background-color: var(--accent-color);
@@ -131,7 +143,7 @@
 
 .why-to__title {
   padding-block: 40px 20px;
-  color: var(--accent-color);
+  color: var(--subtitle-color);
   font-weight: 700;
   font-size: 18px;
 }
@@ -150,13 +162,25 @@
   cursor: pointer;
 }
 
+.link-decor:hover {
+  border-block-end: 1px solid var(--text-color);
+}
+
+.link-decor:focus {
+  outline: none;
+}
+
+.link-decor:focus-visible {
+  outline: 1px solid var(--subtitle-color);
+}
+
 .what-to {
   display: grid;
 }
 
 .what-to__title {
   padding-block: 50px 20px;
-  color: var(--accent-color);
+  color: var(--subtitle-color);
   font-weight: 700;
   font-size: 18px;
 }
@@ -175,7 +199,7 @@
 
 .how-to__title {
   padding-block: 50px 20px;
-  color: var(--accent-color);
+  color: var(--subtitle-color);
   font-weight: 700;
   font-size: 18px;
 }

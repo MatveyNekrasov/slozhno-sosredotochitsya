@@ -2,4 +2,233 @@
 
 .page {
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+  color: var(--text-color, #f1b2ce);
+  font-family: var(--main-font, monospace);
+  font-size: 18px;
+  line-height: 130%;
+  background-color: var(--bg-color, #000028);
+  background-image: var(--bg-image);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.header {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr min-content 1fr;
+  grid-template-areas:
+    "header-buttons header-buttons"
+    "header-title header-title" "header-text header-text";
+  align-content: center;
+  background-attachment: fixed;
+  block-size: max(100vh, 668px);
+}
+
+.decorated-zone::before {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  border-inline-end: 1px solid var(--accent-color);
+  border-block-start: 1px solid var(--accent-color);
+  inline-size: 25px;
+  block-size: 25px;
+  inset-block-start: 10px;
+  inset-inline-end: 10px;
+}
+
+.decorated-zone::after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  border-inline-start: 1px solid var(--accent-color);
+  border-block-end: 1px solid var(--accent-color);
+  inline-size: 25px;
+  block-size: 25px;
+  inset-block-end: 10px;
+  inset-inline-start: 10px;
+}
+
+.content-section {
+  padding-inline: 10px;
+}
+
+.decorated-element {
+  position: absolute;
+  color: var(--accent-color);
+  text-transform: uppercase;
+  inset-block-start: 10px;
+  inset-inline-end: 18px;
+}
+
+.decorated-element::after {
+  content: "";
+  display: inline-block;
+  margin-inline-start: 10px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+  filter: drop-shadow(0px 0px 4px var(--accent-color));
+  inline-size: 9px;
+  block-size: 9px;
+}
+
+.header__theme-menu {
+  grid-area: header-buttons;
+  align-self: center;
+}
+
+.header__theme-menu-list {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 10px;
+  padding-block-start: 21%;
+}
+
+.header__theme-menu-button {
+  border: none;
+  padding-inline: 13px;
+  color: var(--accent-color);
+  text-align: center;
+  text-transform: lowercase;
+  background-color: transparent;
+  cursor: pointer;
+  appearance: none;
+}
+
+.header__theme-menu-button_active {
+  outline: 1px solid var(--accent-color);
+  pointer-events: none;
+}
+
+.header__title {
+  grid-area: header-title;
+  align-self: center;
+  padding-block: 65px 55px;
+  color: var(--title-color, #db00ff);
+  font-weight: 700;
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  line-height: 82.5%;
+  text-shadow: 4px 4px 0 var(--accent-color);
+}
+
+.header__text {
+  grid-area: header-text;
+  align-self: start;
+}
+
+.title-decor {
+  color: #000028;
+  font-weight: 700;
+  font-size: 18px;
+  background-color: var(--accent-color);
+}
+
+.why-to {
+  display: grid;
+}
+
+.why-to__title {
+  padding-block: 40px 20px;
+  color: var(--accent-color);
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.why-to__list-item:not(:last-child) {
+  padding-block-end: 20px;
+}
+
+.why-to__list-item__title {
+  margin-block-end: 10px;
+}
+
+.link-decor {
+  text-decoration: none;
+  text-shadow: 2px 2px 0 var(--accent-color);
+  cursor: pointer;
+}
+
+.what-to {
+  display: grid;
+}
+
+.what-to__title {
+  padding-block: 50px 20px;
+  color: var(--accent-color);
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.what-to__list-item:not(:last-child) {
+  padding-block-end: 20px;
+}
+
+.what-to__list-item__title {
+  margin-block-end: 10px;
+}
+
+.how-to {
+  display: grid;
+}
+
+.how-to__title {
+  padding-block: 50px 20px;
+  color: var(--accent-color);
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.how-to__subtitle {
+  margin-block-end: 20px;
+}
+
+.how-to__list-item:not(:last-child) {
+  padding-block-end: 20px;
+}
+
+.how-to__list-item__title {
+  margin-block-end: 10px;
+  font-weight: inherit;
+}
+
+.gallery {
+}
+
+.gallery__title-wrapper {
+  padding-block: 50px 10px;
+}
+
+.gallery__list {
+  display: grid;
+  gap: 10px;
+}
+
+.gallery-image {
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.gallery__list-item:last-child {
+  padding-block-end: 40px;
+}
+
+.footer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  block-size: max(100vh, 668px);
+}
+
+.footer-text {
+  color: var(--title-color);
+  font-weight: 700;
+  font-size: 116px;
+  line-height: 82.5%;
+  text-shadow: 2px 2px 0 var(--accent-color);
 }

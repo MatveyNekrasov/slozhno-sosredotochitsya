@@ -21,7 +21,8 @@
   grid-template-rows: 1fr 1fr 1fr;
   grid-template-areas:
     "header-buttons header-buttons"
-    "header-title header-title" "header-text header-text";  
+    "header-title header-title"
+    "header-text header-text";
   block-size: max(100vh, 668px);
 }
 
@@ -176,7 +177,9 @@
 .what-to {
   display: grid;
   grid-template-columns: 32% 1fr;
-  grid-template-areas: "what-to__title what-to__title" "what-to__list what-to__list";
+  grid-template-areas:
+    "what-to__title what-to__title"
+    "what-to__list what-to__list";
   padding-block-start: var(--article-indent);
 }
 
@@ -202,7 +205,9 @@
 .how-to {
   display: grid;
   grid-template-columns: 32% 1fr;
-  grid-template-areas: "how-to__title how-to__title" "how-to__list how-to__list";
+  grid-template-areas:
+    "how-to__title how-to__title"
+    "how-to__list how-to__list";
   padding-block-start: var(--article-indent);
 }
 
@@ -273,7 +278,8 @@
   .header {
     grid-template-areas:
       "header-buttons header-buttons"
-      "header-title header-title" ". header-text";
+      "header-title header-title"
+      ". header-text";
   }
 
   .header__theme-menu {
@@ -293,12 +299,16 @@
   }
 
   .what-to {
-    grid-template-areas: "what-to__title ." "what-to__list what-to__list";
+    grid-template-areas:
+      "what-to__title ."
+      "what-to__list what-to__list";
   }
 
   .how-to {
     grid-template-columns: 32% 1fr;
-    grid-template-areas: "how-to__title how-to__list" ". how-to__list";
+    grid-template-areas:
+      "how-to__title how-to__list"
+      ". how-to__list";
     gap: 20px;
   }
 

@@ -13,4 +13,14 @@
   --title-decor-color: #000028; /* цвет выделенных акцентом элементов */
   --subtitle-color: #ff0070; /* цвет подзаголовков и декоративных элементов */
   --hover-color: #ff007066; /* цвет обводки (с opacity) кнопок при наведении */
+
+  --content-section-padding: 10px; /* отступ основного контента от границ страницы */
+  --article-indent: 50px; /* отступ между секциями на странице */
+}
+
+@media (width >= 768px) {
+  :root {
+    --content-section-padding: 20px;
+    --article-indent: 80px;
+  }
 }

@@ -17,11 +17,10 @@
   position: relative;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 1fr min-content 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   grid-template-areas:
     "header-buttons header-buttons"
     "header-title header-title" "header-text header-text";
-  align-content: center;
   background-attachment: fixed;
   block-size: max(100vh, 668px);
 }
@@ -34,8 +33,8 @@
   border-block-start: 1px solid var(--subtitle-color);
   inline-size: 25px;
   block-size: 25px;
-  inset-block-start: 10px;
-  inset-inline-end: 10px;
+  inset-block-start: var(--content-section-padding);
+  inset-inline-end: var(--content-section-padding);
 }
 
 .decorated-zone::after {
@@ -46,20 +45,20 @@
   border-block-end: 1px solid var(--subtitle-color);
   inline-size: 25px;
   block-size: 25px;
-  inset-block-end: 10px;
-  inset-inline-start: 10px;
+  inset-block-end: var(--content-section-padding);
+  inset-inline-start: var(--content-section-padding);
 }
 
 .content-section {
-  padding-inline: 10px;
+  padding-inline: var(--content-section-padding);
 }
 
 .decorated-element {
   position: absolute;
   color: var(--accent-color);
   text-transform: uppercase;
-  inset-block-start: 10px;
-  inset-inline-end: 18px;
+  inset-block-start: var(--content-section-padding);
+  inset-inline-end: calc(var(--content-section-padding) + 8px);
 }
 
 .decorated-element::after {
@@ -75,15 +74,14 @@
 
 .header__theme-menu {
   grid-area: header-buttons;
-  align-self: center;
+  padding-block-start: 21%;
 }
 
 .header__theme-menu-list {
   display: flex;
   flex-direction: column;
   align-items: end;
-  gap: 10px;
-  padding-block-start: 21%;
+  gap: 13px;
 }
 
 .header__theme-menu-button {
@@ -117,7 +115,7 @@
 .header__title {
   grid-area: header-title;
   align-self: center;
-  padding-block: 65px 55px;
+  padding-block: 57px 55px;
   color: var(--title-color, #db00ff);
   font-weight: 700;
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
@@ -139,10 +137,11 @@
 
 .why-to {
   display: grid;
+  padding-block-start: 40px;
 }
 
 .why-to__title {
-  padding-block: 40px 20px;
+  padding-block-end: 20px;
   color: var(--subtitle-color);
   font-weight: 700;
   font-size: 18px;
@@ -176,17 +175,24 @@
 
 .what-to {
   display: grid;
+  grid-template-columns: 32% 1fr;
+  grid-template-areas: "what-to__title what-to__title" "what-to__list what-to__list";
+  padding-block-start: var(--article-indent);
 }
 
 .what-to__title {
-  padding-block: 50px 20px;
+  grid-area: what-to__title;
+  padding-block-end: 20px;
   color: var(--subtitle-color);
   font-weight: 700;
   font-size: 18px;
 }
 
-.what-to__list-item:not(:last-child) {
-  padding-block-end: 20px;
+.what-to__list {
+  display: flex;
+  flex-direction: column;
+  grid-area: what-to__list;
+  gap: 20px;
 }
 
 .what-to__list-item__title {
@@ -195,13 +201,21 @@
 
 .how-to {
   display: grid;
+  grid-template-columns: 32% 1fr;
+  grid-template-areas: "how-to__title how-to__title" "how-to__list how-to__list";
+  padding-block-start: var(--article-indent);
 }
 
 .how-to__title {
-  padding-block: 50px 20px;
+  grid-area: how-to__title;
+  padding-block-end: 20px;
   color: var(--subtitle-color);
   font-weight: 700;
   font-size: 18px;
+}
+
+.how-to__list-wrapper {
+  grid-area: how-to__list;
 }
 
 .how-to__subtitle {
@@ -218,15 +232,17 @@
 }
 
 .gallery {
+  padding-block-start: var(--article-indent);
 }
 
 .gallery__title-wrapper {
-  padding-block: 50px 10px;
+  padding-block-end: var(--content-section-padding);
 }
 
 .gallery__list {
   display: grid;
   gap: 10px;
+  padding-block-end: 40px;
 }
 
 .gallery-image {
@@ -235,10 +251,6 @@
   object-position: center;
   inline-size: 100%;
   block-size: 100%;
-}
-
-.gallery__list-item:last-child {
-  padding-block-end: 40px;
 }
 
 .footer {
@@ -252,7 +264,101 @@
 .footer-text {
   color: var(--title-color);
   font-weight: 700;
-  font-size: 116px;
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   line-height: 82.5%;
   text-shadow: 2px 2px 0 var(--accent-color);
+}
+
+@media (width >= 768px) {
+  .header {
+    grid-template-areas:
+      "header-buttons header-buttons"
+      "header-title header-title" ". header-text";
+  }
+
+  .header__theme-menu {
+    padding-block-start: 26%;
+  }
+
+  .header__title {
+    margin-inline-start: -20px;
+    padding-block: 167px 162px;
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+
+  .why-to {
+    grid-template-columns: 32% 1fr;
+    gap: 20px;
+    padding-block-start: 60px;
+  }
+
+  .what-to {
+    grid-template-areas: "what-to__title ." "what-to__list what-to__list";
+  }
+
+  .how-to {
+    grid-template-columns: 32% 1fr;
+    grid-template-areas: "how-to__title how-to__list" ". how-to__list";
+    gap: 20px;
+  }
+
+  .gallery {
+    padding-block-end: 60px;
+  }
+
+  .gallery__list {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 20px;
+    max-block-size: 780px;
+  }
+
+  .gallery__list-item:nth-child(1) {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+  }
+
+  .gallery__list-item:nth-child(2) {
+    grid-row: 1 / 3;
+  }
+
+  .gallery__list-item:nth-child(3) {
+    grid-row: 2 / 4;
+  }
+
+  .gallery__list-item:nth-child(5) {
+    grid-column: 2 / 4;
+  }
+
+  .footer-text {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+}
+
+@media (width >= 1024px) {
+  .header__theme-menu {
+    padding-block-start: 20px;
+  }
+
+  .header__theme-menu-list {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .header__title {
+    padding-block: 114px;
+  }
+
+  .what-to__list {
+    flex-direction: row;
+  }
+
+  .what-to__list-item {
+    justify-content: center;
+    inline-size: 33.3%;
+  }
+
+  .gallery__list {
+    max-block-size: 1048px;
+  }
 }
